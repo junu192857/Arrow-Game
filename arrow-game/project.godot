@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Arrow game"
+run/main_scene="uid://xe803kduic16"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -20,6 +21,8 @@ InputManager="*uid://cqlv3cxb1jkab"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
