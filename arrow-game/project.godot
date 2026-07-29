@@ -14,6 +14,10 @@ config/name="Arrow game"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+InputManager="*uid://cqlv3cxb1jkab"
+
 [display]
 
 window/stretch/mode="canvas_items"
