@@ -17,11 +17,9 @@ func start_new_level():
 	playing = false
 	$GuidePanel.set_guide(level)
 	$SkillPanel.set_skill_guide(level)
-	show_level_information()
+	$InformationPanel.visible = true
+	$InformationPanel/InformationManager.show_information(level)
 	start_new_stage()
 
 func start_new_stage():
 	stage += 1
-
-func show_level_information():
-	$InformationPanel.visible = true
