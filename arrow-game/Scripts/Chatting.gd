@@ -1,4 +1,5 @@
 extends Control
+class_name Chatting
 
 enum Skill { Newbie, Middleman, Pro, Demon, Ranker }
 
@@ -8,6 +9,7 @@ enum Skill { Newbie, Middleman, Pro, Demon, Ranker }
 @export var imojiHolders: Array[ImojiManager]
 @export var holder_count: int
 @export var is_target: bool
+
 
 var skill: int
 var upper_left_arrow: int
