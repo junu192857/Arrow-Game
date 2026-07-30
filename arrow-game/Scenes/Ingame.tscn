@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dtygjw8dknxhr" path="res://Scripts/LevelManager.gd" id="1_0u16y"]
 [ext_resource type="Script" uid="uid://dn1fw5yqmq0la" path="res://Scripts/InformationManager.gd" id="1_7e8yd"]
 [ext_resource type="PackedScene" uid="uid://y0a6xdhs3fwa" path="res://Prefabs/record_chatting.tscn" id="3_pkr1v"]
-[ext_resource type="PackedScene" uid="uid://d1r3xoj054pqq" path="res://Scenes/TargetChatting.tscn" id="4_iit7f"]
+[ext_resource type="PackedScene" uid="uid://d1r3xoj054pqq" path="res://Prefabs/TargetChatting.tscn" id="4_iit7f"]
 
 [node name="LevelManager" type="Control" unique_id=1911157824]
 layout_mode = 3

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d1r3xoj054pqq"]
 
 [ext_resource type="Script" uid="uid://d4f3nhffsenxx" path="res://Scripts/Chatting.gd" id="1_ym31d"]
-[ext_resource type="Texture2D" uid="uid://cbrbxv5upsido" path="res://Textures/DiscordIcons/blue_icon.png" id="2_lrv6u"]
+[ext_resource type="Texture2D" uid="uid://cr0ei0582e8f3" path="res://Textures/DiscordIcons/blue_icon.png" id="2_lrv6u"]
 [ext_resource type="Script" uid="uid://d25q2ptdgnki3" path="res://Scripts/ImojiManager.gd" id="3_lrv6u"]
 [ext_resource type="Texture2D" uid="uid://bdjjcsr0ujuos" path="res://Textures/Imojis/place_of_worship.png" id="3_m0g72"]
 
