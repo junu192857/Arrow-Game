@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://d4f3nhffsenxx" path="res://Scripts/Chatting.gd" id="1_ym31d"]
 [ext_resource type="Texture2D" uid="uid://cr0ei0582e8f3" path="res://Textures/DiscordIcons/blue_icon.png" id="2_lrv6u"]
 [ext_resource type="Script" uid="uid://d25q2ptdgnki3" path="res://Scripts/ImojiManager.gd" id="3_lrv6u"]
-[ext_resource type="Texture2D" uid="uid://bdjjcsr0ujuos" path="res://Textures/Imojis/place_of_worship.png" id="3_m0g72"]
 
 [node name="TargetChatting" type="Control" unique_id=1253016676 node_paths=PackedStringArray("icon", "chat", "username", "imojiHolders")]
 layout_mode = 3
@@ -79,7 +78,6 @@ anchor_right = 0.46800002
 anchor_bottom = 0.98100007
 offset_right = 0.00399971
 offset_bottom = -0.008134842
-texture = ExtResource("3_m0g72")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="ImojiHolder1" unique_id=1140629153]
@@ -90,7 +88,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -113,7 +110,6 @@ anchor_right = 0.46800002
 anchor_bottom = 0.98100007
 offset_right = 0.00399971
 offset_bottom = -0.008134842
-texture = ExtResource("3_m0g72")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="ImojiHolder2" unique_id=446073119]
@@ -124,7 +120,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -147,7 +142,6 @@ anchor_right = 0.46800002
 anchor_bottom = 0.98100007
 offset_right = 0.00399971
 offset_bottom = -0.008134842
-texture = ExtResource("3_m0g72")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="ImojiHolder3" unique_id=679458525]
@@ -158,7 +152,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -181,7 +174,6 @@ anchor_right = 0.46800002
 anchor_bottom = 0.98100007
 offset_right = 0.00399971
 offset_bottom = -0.008134842
-texture = ExtResource("3_m0g72")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="ImojiHolder4" unique_id=2118007018]
@@ -192,6 +184,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
