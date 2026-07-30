@@ -51,6 +51,7 @@ func delete_imoji(imojiIndex: int):
 		if imojiHolders[i].imoji_index == imojiIndex:
 			var cleaned = imojiHolders[i].subtract_count()
 			if cleaned:
-				pass
-				# 뒤쪽에 이모지가 있다면 앞으로 정렬하기
+				for j in range(i, 3):
+					imojiHolders[j].copy_from(imojiHolders[j + 1])
+					imojiHolders[3].clear()
 			break

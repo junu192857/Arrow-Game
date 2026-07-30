@@ -16,11 +16,12 @@ func assign_imoji(new_imoji_index: int):
 		Imoji.UpperLeftArrow:
 			texture_rect.texture = load("res://Textures/Imojis/upper_left_arrow.png")
 		Imoji.PlaceOfWorship:
-			texture_rect.texture = load("res://Textures/Imojis/place_or_worship.png")
+			texture_rect.texture = load("res://Textures/Imojis/place_of_worship.png")
 		Imoji.UpwardArrow:
 			texture_rect.texture = load("res://Textures/Imojis/upward_arrow.png")
 		Imoji.DownwardArrow:
 			texture_rect.texture = load("res://Textures/Imojis/downward_arrow.png")
+	imoji_index = new_imoji_index
 	add_count()
 
 func add_count():
@@ -40,3 +41,15 @@ func subtract_count() -> bool:
 		return true
 	label.text = "%d" % count
 	return false
+	
+func copy_from(other: ImojiManager) -> void:
+	imoji_index = other.imoji_index
+	count = other.count
+	texture_rect.texture = other.texture_rect.texture
+	label.text = other.label.text
+
+func clear() -> void:
+	imoji_index = -1
+	count = 0
+	texture_rect.texture = null
+	label.text = ""
