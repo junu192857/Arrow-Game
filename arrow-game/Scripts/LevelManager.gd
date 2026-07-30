@@ -17,7 +17,7 @@ var _target_anchor_step: float
 var _target_base_ready: bool = false
 
 var target_chattings: Array[Chatting]
-
+var current_chatting: Chatting
 
 
 func _ready():
@@ -70,6 +70,7 @@ func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Cha
 	target.anchor_top = _target_base_anchor_top + index * _target_anchor_step
 	target.anchor_bottom = _target_base_anchor_bottom + index * _target_anchor_step
 	target.setup(skill)
+	target.chat.text = chat_text
 	return target
 
 func _create_targets(count: int, ingame: bool) -> void:
@@ -91,6 +92,7 @@ func _random_line(path: String) -> String:
 	var lines := text.split("\n")
 	while lines.size() > 0 and lines[-1].is_empty():
 		lines.remove_at(lines.size() - 1)
+	print(lines.size())
 	return lines[randi() % lines.size()]
 
 
