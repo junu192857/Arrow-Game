@@ -13,7 +13,7 @@ var place_of_worship: int
 var upper_arrow: int
 var down_arrow: int
 
-func _init(p_skill: Skill):
+func setup(p_skill: Skill) -> void:
 	skill = p_skill
 	match p_skill:
 		Skill.Newbie:
@@ -44,6 +44,7 @@ func add_imoji(imojiIndex: int):
 			break
 		elif imojiHolders[i].imoji_index == -1:
 			imojiHolders[i].assign_imoji(imojiIndex)
+			break
 
 func delete_imoji(imojiIndex: int):
 	for i in range(4):
@@ -52,3 +53,4 @@ func delete_imoji(imojiIndex: int):
 			if cleaned:
 				pass
 				# 뒤쪽에 이모지가 있다면 앞으로 정렬하기
+			break
