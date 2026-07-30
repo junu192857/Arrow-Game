@@ -78,5 +78,5 @@ func delete_imoji(imojiIndex: int):
 			if cleaned:
 				for j in range(i, holder_count - 1):
 					imojiHolders[j].copy_from(imojiHolders[j + 1])
-					imojiHolders[holder_count - 1].clear()
+				imojiHolders[holder_count - 1].clear()
 			break
