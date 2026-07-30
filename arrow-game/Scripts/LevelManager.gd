@@ -23,6 +23,7 @@ var current_chatting: Chatting
 func _ready():
 	level = 0
 	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
+	InputManager.key_pressed.connect(_on_key_pressed)
 	start_new_level()
 
 func start_new_level():
@@ -38,12 +39,50 @@ func start_new_level():
 
 func start_new_stage():
 	stage += 1
+	playing = true
 	target_chattings.clear()
 	for child in $GamePanel.get_children():
 		child.queue_free()
 	_create_record(_random_line("res://RecordChattings.txt"), _random_target_skill())
 	target_count = max(10, level)
 	_create_targets(target_count, true)
+	current_chatting = target_chattings[0]
+
+func _on_key_pressed(key: InputManager.Key) -> void:
+	if !playing:
+		return
+	match key:
+		InputManager.Key.D:
+			_apply_imoji(0)
+		InputManager.Key.J:
+			_apply_imoji(1)
+		InputManager.Key.S:
+			_apply_imoji(2)
+		InputManager.Key.K:
+			_apply_imoji(3)
+		InputManager.Key.SPACE:
+			_advance_chatting()
+
+func _apply_imoji(imojiIndex: int) -> void:
+	if InputManager.shift_held:
+		current_chatting.delete_imoji(imojiIndex)
+	else:
+		current_chatting.add_imoji(imojiIndex)
+
+func _advance_chatting() -> void:
+	if not _can_advance_chatting():
+		return
+	var next_index := target_chattings.find(current_chatting) + 1
+	if next_index >= target_chattings.size():
+		if stage >= 3:
+			start_new_level()
+		else:
+			start_new_stage()
+		return
+	current_chatting = target_chattings[next_index]
+
+func _can_advance_chatting() -> bool:
+	return true # 조건 추가 예정
 
 func _create_record(chat_text: String, skill: Chatting.Skill) -> void:
 	var record := RECORD_CHATTING_SCENE.instantiate() as Chatting

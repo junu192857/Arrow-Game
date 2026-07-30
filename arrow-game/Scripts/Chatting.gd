@@ -19,28 +19,9 @@ var down_arrow: int
 
 func _ready() -> void:
 	if is_target:
-		InputManager.key_pressed.connect(_on_key_pressed)
 		for i in range(holder_count):
 			imojiHolders[i].clear()
 	setup(Skill.Newbie)
-
-func _on_key_pressed(key: InputManager.Key) -> void:
-	var imojiIndex: int
-	match key:
-		InputManager.Key.D:
-			imojiIndex = 0
-		InputManager.Key.J:
-			imojiIndex = 1
-		InputManager.Key.S:
-			imojiIndex = 2
-		InputManager.Key.K:
-			imojiIndex = 3
-		_:
-			return
-	if InputManager.shift_held:
-		delete_imoji(imojiIndex)
-	else:
-		add_imoji(imojiIndex)
 
 func setup(p_skill: Skill) -> void:
 	skill = p_skill
