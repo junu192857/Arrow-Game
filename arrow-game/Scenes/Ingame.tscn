@@ -9,7 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bdjjcsr0ujuos" path="res://Textures/Imojis/place_of_worship.png" id="7_n56hh"]
 [ext_resource type="Texture2D" uid="uid://mflav8dbnuk1" path="res://Textures/Imojis/upward_arrow.png" id="8_o04ng"]
 [ext_resource type="Texture2D" uid="uid://2mrb1vpvyukg" path="res://Textures/Imojis/downward_arrow.png" id="9_sjeo6"]
+[ext_resource type="Script" uid="uid://cfjtp6dgk0355" path="res://Scripts/SkillManager.gd" id="10_ho0oi"]
+[ext_resource type="Texture2D" uid="uid://5gej4jg0rxfb" path="res://Textures/DiscordIcons/orange_icon.png" id="10_lxlh7"]
 [ext_resource type="Texture2D" uid="uid://ct7u13dsc4oxl" path="res://Textures/DiscordIcons/red_icon.png" id="10_mu5rl"]
+[ext_resource type="Texture2D" uid="uid://lfxyvhl4swmk" path="res://Textures/DiscordIcons/yellow_icon.png" id="12_ho0oi"]
+[ext_resource type="Texture2D" uid="uid://b047u5n685jw" path="res://Textures/DiscordIcons/green_icon.png" id="13_rovth"]
+[ext_resource type="Texture2D" uid="uid://cr0ei0582e8f3" path="res://Textures/DiscordIcons/blue_icon.png" id="14_wr72f"]
 
 [node name="LevelManager" type="Control" unique_id=1911157824]
 layout_mode = 3
@@ -318,6 +323,7 @@ offset_left = -3.0
 offset_top = 0.11999512
 offset_right = 0.8800049
 offset_bottom = 0.23995972
+script = ExtResource("10_ho0oi")
 
 [node name="Label" type="Label" parent="SkillPanel" unique_id=672015117]
 layout_mode = 1
@@ -336,15 +342,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ranker" type="Control" parent="SkillPanel" unique_id=1315655415]
+visible = false
 layout_mode = 1
 anchor_left = 0.078
 anchor_top = 0.47100002
 anchor_right = 0.224
 anchor_bottom = 0.961
-offset_left = -0.34200287
-offset_top = -0.10500336
-offset_right = -0.13600159
-offset_bottom = -0.055007935
+offset_left = 80.658
+offset_top = -4.1050034
+offset_right = 80.864
+offset_bottom = -4.055008
 
 [node name="TextureRect" type="TextureRect" parent="SkillPanel/Ranker" unique_id=294181231]
 layout_mode = 1
@@ -353,7 +360,7 @@ anchor_top = 0.016
 anchor_right = 0.492
 anchor_bottom = 0.536
 offset_right = 0.0399971
-texture = ExtResource("10_mu5rl")
+texture = ExtResource("10_lxlh7")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="SkillPanel/Ranker" unique_id=2118231502]
@@ -381,18 +388,19 @@ text = ">"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ranker2" type="Control" parent="SkillPanel" unique_id=1163973976]
+[node name="Demon" type="Control" parent="SkillPanel" unique_id=1163973976]
+visible = false
 layout_mode = 1
 anchor_left = 0.231
 anchor_top = 0.47100002
 anchor_right = 0.377
 anchor_bottom = 0.961
-offset_left = -0.3590088
-offset_top = -0.10500336
-offset_right = -0.15301514
-offset_bottom = -0.055007935
+offset_left = 80.64099
+offset_top = -4.1050034
+offset_right = 80.846985
+offset_bottom = -4.055008
 
-[node name="TextureRect" type="TextureRect" parent="SkillPanel/Ranker2" unique_id=384448603]
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Demon" unique_id=384448603]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.016
@@ -402,7 +410,7 @@ offset_right = 0.0399971
 texture = ExtResource("10_mu5rl")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="SkillPanel/Ranker2" unique_id=902806965]
+[node name="Label" type="Label" parent="SkillPanel/Demon" unique_id=902806965]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.61600006
@@ -411,9 +419,10 @@ anchor_bottom = 0.90400004
 offset_left = 0.03699994
 offset_right = -0.010009766
 theme_override_font_sizes/font_size = 25
-text = "탑랭커"
+text = "악귀"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="SkillPanel/Ranker2" unique_id=940012835]
+[node name="Label2" type="Label" parent="SkillPanel/Demon" unique_id=940012835]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.646
@@ -427,28 +436,29 @@ text = ">"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ranker3" type="Control" parent="SkillPanel" unique_id=655350968]
+[node name="Pro" type="Control" parent="SkillPanel" unique_id=655350968]
+visible = false
 layout_mode = 1
 anchor_left = 0.384
 anchor_top = 0.47100002
 anchor_right = 0.53000003
 anchor_bottom = 0.961
-offset_left = -0.37600708
-offset_top = -0.10500336
-offset_right = -0.17001343
-offset_bottom = -0.055007935
+offset_left = 80.62399
+offset_top = -4.1050034
+offset_right = 80.82999
+offset_bottom = -4.055008
 
-[node name="TextureRect" type="TextureRect" parent="SkillPanel/Ranker3" unique_id=1442166135]
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Pro" unique_id=1442166135]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.016
 anchor_right = 0.492
 anchor_bottom = 0.536
 offset_right = 0.0399971
-texture = ExtResource("10_mu5rl")
+texture = ExtResource("12_ho0oi")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="SkillPanel/Ranker3" unique_id=1251707980]
+[node name="Label" type="Label" parent="SkillPanel/Pro" unique_id=1251707980]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.61600006
@@ -457,9 +467,11 @@ anchor_bottom = 0.90400004
 offset_left = 0.03699994
 offset_right = -0.010009766
 theme_override_font_sizes/font_size = 25
-text = "탑랭커"
+text = "고수"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="SkillPanel/Ranker3" unique_id=1408945291]
+[node name="Label2" type="Label" parent="SkillPanel/Pro" unique_id=1408945291]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.646
@@ -473,47 +485,87 @@ text = ">"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ranker4" type="Control" parent="SkillPanel" unique_id=1000460807]
+[node name="Middleman" type="Control" parent="SkillPanel" unique_id=1000460807]
+visible = false
 layout_mode = 1
-anchor_left = 0.384
+anchor_left = 0.537
 anchor_top = 0.47100002
-anchor_right = 0.53000003
+anchor_right = 0.63100004
 anchor_bottom = 0.961
-offset_left = 135.624
-offset_top = -0.10500336
-offset_right = 135.82999
-offset_bottom = -0.055007935
+offset_left = 80.606995
+offset_top = -4.1050034
+offset_right = 81.040955
+offset_bottom = -4.055008
 
-[node name="TextureRect" type="TextureRect" parent="SkillPanel/Ranker4" unique_id=1433404096]
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Middleman" unique_id=1433404096]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.016
-anchor_right = 0.492
+anchor_right = 0.73800004
 anchor_bottom = 0.536
-offset_right = 0.0399971
-texture = ExtResource("10_mu5rl")
+offset_right = 0.0079956055
+texture = ExtResource("13_rovth")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="SkillPanel/Ranker4" unique_id=2073882820]
+[node name="Label" type="Label" parent="SkillPanel/Middleman" unique_id=2073882820]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.61600006
-anchor_right = 0.51000005
-anchor_bottom = 0.90400004
-offset_left = 0.03699994
-offset_right = -0.010009766
+anchor_left = -0.071
+anchor_top = 0.60800004
+anchor_right = 0.82100004
+anchor_bottom = 0.896
+offset_left = -0.035987377
+offset_right = 0.036010742
 theme_override_font_sizes/font_size = 25
-text = "탑랭커"
+text = "미들맨"
 
-[node name="Label2" type="Label" parent="SkillPanel/Ranker4" unique_id=1439303302]
+[node name="Newbie" type="Control" parent="SkillPanel" unique_id=301079427]
+visible = false
+layout_mode = 1
+anchor_left = 0.61800003
+anchor_top = 0.47100002
+anchor_right = 0.76400006
+anchor_bottom = 0.961
+offset_left = 80.59796
+offset_top = -4.1050034
+offset_right = 80.803955
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Newbie" unique_id=743955889]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.646
+anchor_left = 0.485
+anchor_top = 0.016
+anchor_right = 0.97700006
+anchor_bottom = 0.536
+offset_left = -0.05000305
+offset_right = -0.010009766
+texture = ExtResource("14_wr72f")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Newbie" unique_id=2002239354]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41500002
+anchor_top = 0.60800004
+anchor_right = 0.99200004
+anchor_bottom = 0.896
+offset_left = 0.050006866
+offset_right = 0.040008545
+theme_override_font_sizes/font_size = 25
+text = "뉴비"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SkillPanel/Newbie" unique_id=368240556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07700001
 anchor_top = 0.032
-anchor_right = 0.93100005
+anchor_right = 0.36200002
 anchor_bottom = 0.52000004
-offset_left = 0.019950867
-offset_right = -0.015052795
+offset_left = -0.010046959
+offset_right = -0.04504776
 theme_override_font_sizes/font_size = 44
 text = ">"
 horizontal_alignment = 1
