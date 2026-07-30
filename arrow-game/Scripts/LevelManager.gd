@@ -18,6 +18,8 @@ var _target_base_ready: bool = false
 
 var target_chattings: Array[Chatting]
 
+
+
 func _ready():
 	level = 0
 	start_new_level()
@@ -32,18 +34,18 @@ func start_new_level():
 	$InformationPanel/InformationManager.show_information(level)
 	show_information_record(level)
 	show_information_chatting(level)
-	start_new_stage()
+	#start_new_stage()
 
 func start_new_stage():
 	stage += 1
 	target_chattings.clear()
 	for child in $GamePanel.get_children():
 		child.queue_free()
-	_create_record()
+	_create_record(_random_line("res://RecordChattings.txt"), _random_target_skill())
 	target_count = max(10, level)
 	_create_targets(target_count, true)
 
-func _create_record() -> void:
+func _create_record(chat_text: String, skill: Chatting.Skill) -> void:
 	var record := RECORD_CHATTING_SCENE.instantiate() as Chatting
 	$GamePanel.add_child(record)
 	record.anchor_left = 0.05
@@ -54,8 +56,10 @@ func _create_record() -> void:
 	record.offset_top = 0.08000183
 	record.offset_right = -0.631958
 	record.offset_bottom = 0.5359802
-
-func _create_target(index: int, skill: Chatting.Skill) -> Chatting:
+	record.chat.text = chat_text#_random_line("res://RecordChattings.txt")
+	record.setup(skill)
+	
+func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Chatting:
 	var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
 	$GamePanel.add_child(target)
 	if not _target_base_ready:
@@ -70,7 +74,7 @@ func _create_target(index: int, skill: Chatting.Skill) -> Chatting:
 
 func _create_targets(count: int, ingame: bool) -> void:
 	for i in range(count):
-		var chatting = _create_target(i, _random_target_skill())
+		var chatting = _create_target(i, _random_target_skill(), _random_line("res://Chattings.txt"))
 		if ingame:
 			target_chattings.append(chatting)
 
@@ -82,8 +86,19 @@ func _random_target_skill() -> Chatting.Skill:
 		pool.append(Chatting.Skill.Newbie)
 	return pool[randi() % pool.size()]
 
-func show_information_level(p_level: int):
-	pass
+func _random_line(path: String) -> String:
+	var text := FileAccess.get_file_as_string(path)
+	var lines := text.split("\n")
+	while lines.size() > 0 and lines[-1].is_empty():
+		lines.remove_at(lines.size() - 1)
+	return lines[randi() % lines.size()]
+
+
+func show_information_record(p_level: int):
+	match p_level:
+		1:
+			_create_record("오늘성과요~~", Chatting.Skill.Middleman)
+			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..")
 
 func show_information_chatting(p_level: int):
 	pass
