@@ -11,6 +11,13 @@ const TARGET_CHATTING_SCENE := preload("res://Prefabs/TargetChatting.tscn")
 const RECORD_CHATTING_SCENE := preload("res://Prefabs/record_chatting.tscn")
 var target_count
 
+var _target_base_anchor_top: float
+var _target_base_anchor_bottom: float
+var _target_anchor_step: float
+var _target_base_ready: bool = false
+
+var target_chattings: Array[Chatting]
+
 func _ready():
 	level = 0
 	start_new_level()
@@ -23,13 +30,20 @@ func start_new_level():
 	$SkillPanel.set_skill_guide(level)
 	$InformationPanel.visible = true
 	$InformationPanel/InformationManager.show_information(level)
+	show_information_record(level)
+	show_information_chatting(level)
 	start_new_stage()
 
 func start_new_stage():
 	stage += 1
+	target_chattings.clear()
 	for child in $GamePanel.get_children():
 		child.queue_free()
+	_create_record()
+	target_count = max(10, level)
+	_create_targets(target_count, true)
 
+func _create_record() -> void:
 	var record := RECORD_CHATTING_SCENE.instantiate() as Chatting
 	$GamePanel.add_child(record)
 	record.anchor_left = 0.05
@@ -41,23 +55,24 @@ func start_new_stage():
 	record.offset_right = -0.631958
 	record.offset_bottom = 0.5359802
 
-	var base_anchor_top: float
-	var base_anchor_bottom: float
-	var anchor_step: float
-	
-	target_count = max(10, level)
-	
-	for i in range(target_count):
-		var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
-		$GamePanel.add_child(target)
-		if i == 0:
-			base_anchor_top = target.anchor_top
-			base_anchor_bottom = target.anchor_bottom
-			anchor_step = base_anchor_bottom - base_anchor_top
-		else:
-			target.anchor_top = base_anchor_top + i * anchor_step
-			target.anchor_bottom = base_anchor_bottom + i * anchor_step
-		target.setup(_random_target_skill())
+func _create_target(index: int, skill: Chatting.Skill) -> Chatting:
+	var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
+	$GamePanel.add_child(target)
+	if not _target_base_ready:
+		_target_base_anchor_top = target.anchor_top
+		_target_base_anchor_bottom = target.anchor_bottom
+		_target_anchor_step = _target_base_anchor_bottom - _target_base_anchor_top
+		_target_base_ready = true
+	target.anchor_top = _target_base_anchor_top + index * _target_anchor_step
+	target.anchor_bottom = _target_base_anchor_bottom + index * _target_anchor_step
+	target.setup(skill)
+	return target
+
+func _create_targets(count: int, ingame: bool) -> void:
+	for i in range(count):
+		var chatting = _create_target(i, _random_target_skill())
+		if ingame:
+			target_chattings.append(chatting)
 
 func _random_target_skill() -> Chatting.Skill:
 	var pool: Array[Chatting.Skill] = [Chatting.Skill.Demon, Chatting.Skill.Pro, Chatting.Skill.Middleman]
@@ -66,3 +81,9 @@ func _random_target_skill() -> Chatting.Skill:
 	if level >= 10:
 		pool.append(Chatting.Skill.Newbie)
 	return pool[randi() % pool.size()]
+
+func show_information_level(p_level: int):
+	pass
+
+func show_information_chatting(p_level: int):
+	pass

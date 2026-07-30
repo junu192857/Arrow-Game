@@ -1,0 +1,32 @@
+diff --git a/arrow-game/Scripts/LevelManager.gd b/arrow-game/Scripts/LevelManager.gd
+index 16e49b4..0e40c37 100644
+--- a/arrow-game/Scripts/LevelManager.gd
++++ b/arrow-game/Scripts/LevelManager.gd
+@@ -29,7 +29,10 @@ func start_new_stage():
+ 	stage += 1
+ 	for child in $GamePanel.get_children():
+ 		child.queue_free()
++	_create_record()
++	_create_targets()
+ 
++func _create_record() -> void:
+ 	var record := RECORD_CHATTING_SCENE.instantiate() as Chatting
+ 	$GamePanel.add_child(record)
+ 	record.anchor_left = 0.05
+@@ -41,12 +44,13 @@ func start_new_stage():
+ 	record.offset_right = -0.631958
+ 	record.offset_bottom = 0.5359802
+ 
++func _create_targets() -> void:
++	target_count = max(10, level)
++
+ 	var base_anchor_top: float
+ 	var base_anchor_bottom: float
+ 	var anchor_step: float
+-	
+-	target_count = max(10, level)
+-	
++
+ 	for i in range(target_count):
+ 		var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
+ 		$GamePanel.add_child(target)
