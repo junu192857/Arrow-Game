@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://y0a6xdhs3fwa"]
 
 [ext_resource type="Script" uid="uid://d4f3nhffsenxx" path="res://Scripts/Chatting.gd" id="1_cwnu8"]
-[ext_resource type="Texture2D" uid="uid://cbrbxv5upsido" path="res://Textures/DiscordIcons/blue_icon.png" id="1_vmxqq"]
+[ext_resource type="Texture2D" uid="uid://cr0ei0582e8f3" path="res://Textures/DiscordIcons/blue_icon.png" id="1_vmxqq"]
 [ext_resource type="Texture2D" uid="uid://n3d2pb53mt83" path="res://Textures/Records/IMG_2567.webp" id="2_cwnu8"]
 
 [node name="RecordChatting" type="Control" unique_id=1654729021 node_paths=PackedStringArray("icon", "chat", "username")]

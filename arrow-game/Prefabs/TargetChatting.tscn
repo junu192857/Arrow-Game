@@ -18,6 +18,7 @@ icon = NodePath("Icon")
 chat = NodePath("Chat")
 username = NodePath("Name")
 imojiHolders = [NodePath("ImojiHolder1"), NodePath("ImojiHolder2"), NodePath("ImojiHolder3"), NodePath("ImojiHolder4")]
+holder_count = 4
 
 [node name="Icon" type="TextureRect" parent="." unique_id=892672028]
 layout_mode = 1
