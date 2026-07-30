@@ -7,6 +7,7 @@ enum Skill { Newbie, Middleman, Pro, Demon, Ranker }
 @export var username: Label
 @export var imojiHolders: Array[ImojiManager]
 @export var holder_count: int
+@export var is_target: bool
 
 var skill: int
 var upper_left_arrow: int
@@ -15,9 +16,10 @@ var upper_arrow: int
 var down_arrow: int
 
 func _ready() -> void:
-	InputManager.key_pressed.connect(_on_key_pressed)
-	for i in range(holder_count):
-		imojiHolders[i].clear()
+	if is_target:
+		InputManager.key_pressed.connect(_on_key_pressed)
+		for i in range(holder_count):
+			imojiHolders[i].clear()
 	setup(Skill.Newbie)
 
 func _on_key_pressed(key: InputManager.Key) -> void:
