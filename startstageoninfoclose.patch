@@ -1,0 +1,40 @@
+diff --git a/arrow-game/Scripts/InformationManager.gd b/arrow-game/Scripts/InformationManager.gd
+index 236ec2f..10776ec 100644
+--- a/arrow-game/Scripts/InformationManager.gd
++++ b/arrow-game/Scripts/InformationManager.gd
+@@ -1,5 +1,7 @@
+ extends Node
+ 
++signal information_closed
++
+ @onready var label: Label = $Label
+ 
+ var lines: PackedStringArray = []
+@@ -22,6 +24,7 @@ func _on_key_pressed(key: InputManager.Key) -> void:
+ 	if line_index >= lines.size() - 1:
+ 		get_parent().visible = false
+ 		lines.clear()
++		information_closed.emit()
+ 		return
+ 	line_index += 1
+ 	_show_current_line()
+diff --git a/arrow-game/Scripts/LevelManager.gd b/arrow-game/Scripts/LevelManager.gd
+index 691aea4..3659a18 100644
+--- a/arrow-game/Scripts/LevelManager.gd
++++ b/arrow-game/Scripts/LevelManager.gd
+@@ -22,6 +22,7 @@ var target_chattings: Array[Chatting]
+ 
+ func _ready():
+ 	level = 0
++	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
+ 	start_new_level()
+ 
+ func start_new_level():
+@@ -34,7 +35,6 @@ func start_new_level():
+ 	$InformationPanel/InformationManager.show_information(level)
+ 	show_information_record(level)
+ 	show_information_chatting(level)
+-	#start_new_stage()
+ 
+ func start_new_stage():
+ 	stage += 1

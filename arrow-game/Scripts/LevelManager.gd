@@ -22,6 +22,7 @@ var target_chattings: Array[Chatting]
 
 func _ready():
 	level = 0
+	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
 	start_new_level()
 
 func start_new_level():
@@ -34,7 +35,6 @@ func start_new_level():
 	$InformationPanel/InformationManager.show_information(level)
 	show_information_record(level)
 	show_information_chatting(level)
-	#start_new_stage()
 
 func start_new_stage():
 	stage += 1

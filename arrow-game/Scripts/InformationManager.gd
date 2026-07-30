@@ -1,5 +1,7 @@
 extends Node
 
+signal information_closed
+
 @onready var label: Label = $Label
 
 var lines: PackedStringArray = []
@@ -22,6 +24,7 @@ func _on_key_pressed(key: InputManager.Key) -> void:
 	if line_index >= lines.size() - 1:
 		get_parent().visible = false
 		lines.clear()
+		information_closed.emit()
 		return
 	line_index += 1
 	_show_current_line()
