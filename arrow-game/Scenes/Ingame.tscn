@@ -554,3 +554,20 @@ theme_override_font_sizes/font_size = 44
 text = ">"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StatusPanel" type="Panel" parent="." unique_id=760415821]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 58.0
+offset_right = 1803.0
+offset_bottom = 197.0
+
+[node name="Label" type="Label" parent="StatusPanel" unique_id=41814489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = 41.0
+offset_right = -762.0
+offset_bottom = -41.0
