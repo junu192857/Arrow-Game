@@ -31,7 +31,7 @@ var _reposition_tween: Tween
 
 
 func _ready():
-	level = 0
+	level = 2
 	_time_bar_anchor_left = $StatusPanel/TimeBar.anchor_left
 	_time_bar_full_anchor_right = $StatusPanel/TimeBar.anchor_right
 	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
@@ -62,6 +62,8 @@ func start_new_level():
 	level += 1
 	stage = 0
 	playing = false
+	for child in $GamePanel.get_children():
+		child.queue_free()
 	$GuidePanel.set_guide(level)
 	$SkillPanel.set_skill_guide(level)
 	$InformationPanel.visible = true
@@ -253,7 +255,7 @@ func _create_record(chat_text: String, skill: Chatting.Skill) -> void:
 	record.setup(skill)
 	current_record = record
 
-func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Chatting:
+func _create_target(index: int, skill: Chatting.Skill, chat_text: String, is_information: bool) -> Chatting:
 	var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
 	$GamePanel.add_child(target)
 	if not _target_base_ready:
@@ -265,12 +267,29 @@ func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Cha
 	target.anchor_bottom = _target_base_anchor_bottom + index * _target_anchor_step
 	target.setup(skill)
 	target.chat.text = chat_text
+	_seed_initial_imojis(target, is_information)
 	return target
+
+func _seed_initial_imojis(chatting: Chatting, is_information: bool) -> void:
+	if is_information:
+		return
+	for imoji_index in range(4):
+		var initial_count := _random_initial_count(imoji_index)
+		for i in range(initial_count):
+			chatting.add_imoji(imoji_index)
+
+func _random_initial_count(imojiIndex: int) -> int:
+	if not _can_delete_type(imojiIndex):
+		return 0
+	var max_count := _max_count_for(imojiIndex)
+	if max_count <= 1:
+		return randi() % 2
+	return randi() % (max_count + 1)
 
 func _create_targets(count: int, ingame: bool) -> void:
 	var skills := _generate_target_skills(count)
 	for i in range(count):
-		var chatting = _create_target(i, skills[i], _random_line("res://Chattings.txt"))
+		var chatting = _create_target(i, skills[i], _random_line("res://Chattings.txt"), false)
 		if ingame:
 			target_chattings.append(chatting)
 
@@ -307,10 +326,24 @@ func show_information_record(p_level: int):
 	match p_level:
 		1:
 			_create_record("오늘성과요~~", Chatting.Skill.Middleman)
-			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..")
+			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..", true)
 		2:
 			_create_record("와진짜겨우했네요...", Chatting.Skill.Pro)
-			_create_target(0, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..")
+			_create_target(0, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
+		3:
+			_create_record("오늘성과요~~", Chatting.Skill.Pro)
+			var chatting = _create_target(0, Chatting.Skill.Middleman, "츄니즘잘하면좋겠죠..", true)
+			chatting.add_imoji(0)
+		4:
+			_create_record("와진짜겨우했네요..", Chatting.Skill.Demon)
+			var chatting = _create_target(0, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
+			chatting.add_imoji(1)
+		5:
+			_create_record("와미친대박성과ㅋㅋㅋ", Chatting.Skill.Ranker)
+		6:
+			_create_record("와진짜겨우했네요..", Chatting.Skill.Pro)
+			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..", true)
+			_create_target(1, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
 
 func show_information_chatting(p_level: int):
 	pass
