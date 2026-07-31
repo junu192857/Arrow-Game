@@ -1,0 +1,34 @@
+diff --git a/arrow-game/Scripts/LevelManager.gd b/arrow-game/Scripts/LevelManager.gd
+index 57e7029..f4fcb26 100644
+--- a/arrow-game/Scripts/LevelManager.gd
++++ b/arrow-game/Scripts/LevelManager.gd
+@@ -268,8 +268,9 @@ func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Cha
+ 	return target
+ 
+ func _create_targets(count: int, ingame: bool) -> void:
++	var skills := _generate_target_skills(count)
+ 	for i in range(count):
+-		var chatting = _create_target(i, _random_target_skill(), _random_line("res://Chattings.txt"))
++		var chatting = _create_target(i, skills[i], _random_line("res://Chattings.txt"))
+ 		if ingame:
+ 			target_chattings.append(chatting)
+ 
+@@ -281,6 +282,18 @@ func _random_target_skill() -> Chatting.Skill:
+ 		pool.append(Chatting.Skill.Newbie)
+ 	return pool[randi() % pool.size()]
+ 
++func _generate_target_skills(count: int) -> Array[Chatting.Skill]:
++	var pool: Array[Chatting.Skill] = [Chatting.Skill.Demon, Chatting.Skill.Pro, Chatting.Skill.Middleman]
++	if level >= 5:
++		pool.append(Chatting.Skill.Ranker)
++	if level >= 10:
++		pool.append(Chatting.Skill.Newbie)
++	var skills: Array[Chatting.Skill] = pool.duplicate()
++	while skills.size() < count:
++		skills.append(pool[randi() % pool.size()])
++	skills.shuffle()
++	return skills
++
+ func _random_line(path: String) -> String:
+ 	var text := FileAccess.get_file_as_string(path)
+ 	var lines := text.split("\n")
