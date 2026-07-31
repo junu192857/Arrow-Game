@@ -562,7 +562,7 @@ offset_top = 58.0
 offset_right = 1803.0
 offset_bottom = 197.0
 
-[node name="Label" type="Label" parent="StatusPanel" unique_id=41814489]
+[node name="LevelValue" type="Label" parent="StatusPanel" unique_id=41814489]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -575,4 +575,64 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 34
 text = "Level 1-1"
+vertical_alignment = 1
+
+[node name="TimeBar" type="ColorRect" parent="StatusPanel" unique_id=862392712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22600001
+anchor_top = 0.374
+anchor_right = 0.66400003
+anchor_bottom = 0.66200006
+offset_left = -0.022003174
+offset_top = 0.013999939
+offset_right = 0.19195557
+offset_bottom = -0.018005371
+color = Color(1, 1, 0, 1)
+
+[node name="TimeText" type="Label" parent="StatusPanel" unique_id=1699401918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 644.0
+offset_top = 44.0
+offset_right = -245.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "15"
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="StatusPanel" unique_id=817272165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 802.0
+offset_top = 15.0
+offset_right = -60.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="StatusPanel" unique_id=828904746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 773.0
+offset_top = 43.0
+offset_right = -30.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "0"
+horizontal_alignment = 1
 vertical_alignment = 1
