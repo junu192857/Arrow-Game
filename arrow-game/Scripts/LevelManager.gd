@@ -181,10 +181,14 @@ func _advance_chatting() -> void:
 	score += 1
 	var next_index := target_chattings.find(current_chatting) + 1
 	if next_index >= target_chattings.size():
-		if _stage_perfect:
+		var perfect := _stage_perfect
+		var time_bonus := ceili(time_left)
+		if perfect:
 			score += 2
-		score += ceili(time_left)
+		score += time_bonus
 		_update_score_display()
+		playing = false
+		await _show_stage_clear_labels(perfect, time_bonus)
 		if stage >= 3:
 			start_new_level()
 		else:
@@ -192,6 +196,16 @@ func _advance_chatting() -> void:
 		return
 	_update_score_display()
 	_set_current_chatting(target_chattings[next_index])
+
+func _show_stage_clear_labels(perfect: bool, time_bonus: int) -> void:
+	$StageClearLabel.visible = true
+	$PerfectLabel.visible = perfect
+	$TimeBonusLabel.text = "Time +%d" % time_bonus
+	$TimeBonusLabel.visible = true
+	await get_tree().create_timer(2.0).timeout
+	$StageClearLabel.visible = false
+	$PerfectLabel.visible = false
+	$TimeBonusLabel.visible = false
 
 func _can_advance_chatting() -> bool:
 	for imoji_index in range(4):
