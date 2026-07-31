@@ -660,21 +660,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PerfectLabel" type="Label" parent="." unique_id=451159694]
-visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.404
-anchor_top = 0.43100002
+anchor_top = 0.44900003
 anchor_right = 0.58100003
-anchor_bottom = 0.48800004
+anchor_bottom = 0.50600004
 offset_left = -0.6800537
-offset_top = 19.519989
+offset_top = 0.079956055
 offset_right = 0.47998047
-offset_bottom = 18.95996
+offset_bottom = -0.4800415
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 41
-text = "Perfect +2"
+text = "Perfect +7"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -31,7 +31,7 @@ var _reposition_tween: Tween
 
 
 func _ready():
-	level = 8
+	level = 0
 	_time_bar_anchor_left = $StatusPanel/TimeBar.anchor_left
 	_time_bar_full_anchor_right = $StatusPanel/TimeBar.anchor_right
 	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
@@ -204,7 +204,7 @@ func _advance_chatting() -> void:
 		var perfect := _stage_perfect
 		var time_bonus := ceili(time_left)
 		if perfect:
-			score += 2
+			score += 7
 		score += time_bonus
 		_update_score_display()
 		playing = false
