@@ -67,9 +67,11 @@ func start_new_level():
 	$GuidePanel.set_guide(level)
 	$SkillPanel.set_skill_guide(level)
 	$InformationPanel.visible = true
-	$InformationPanel/InformationManager.show_information(level)
-	show_information_record(level)
-	show_information_chatting(level)
+	if (level <= 11):
+		$InformationPanel/InformationManager.show_information(level)
+		show_information_record(level)
+	else:
+		start_new_stage()
 
 func start_new_stage():
 	stage += 1
@@ -366,6 +368,7 @@ func show_information_record(p_level: int):
 				chatting.add_imoji(3)
 			for i in range(4):
 				chatting.add_imoji(2)
-
-func show_information_chatting(p_level: int):
-	pass
+		10:
+			_create_record("오늘성과요~~", Chatting.Skill.Newbie)
+		_:
+			pass
