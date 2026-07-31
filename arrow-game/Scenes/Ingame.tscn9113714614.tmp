@@ -1,0 +1,795 @@
+[gd_scene format=3 uid="uid://xe803kduic16"]
+
+[ext_resource type="Script" uid="uid://dtygjw8dknxhr" path="res://Scripts/LevelManager.gd" id="1_0u16y"]
+[ext_resource type="Script" uid="uid://dn1fw5yqmq0la" path="res://Scripts/InformationManager.gd" id="1_7e8yd"]
+[ext_resource type="Script" uid="uid://dw37qout5bs6n" path="res://Scripts/GuideManager.gd" id="5_c5a3t"]
+[ext_resource type="Texture2D" uid="uid://su2ri577g5xx" path="res://Textures/Imojis/upper_left_arrow.png" id="6_522g6"]
+[ext_resource type="Texture2D" uid="uid://bdjjcsr0ujuos" path="res://Textures/Imojis/place_of_worship.png" id="7_n56hh"]
+[ext_resource type="Texture2D" uid="uid://mflav8dbnuk1" path="res://Textures/Imojis/upward_arrow.png" id="8_o04ng"]
+[ext_resource type="Texture2D" uid="uid://2mrb1vpvyukg" path="res://Textures/Imojis/downward_arrow.png" id="9_sjeo6"]
+[ext_resource type="Script" uid="uid://cfjtp6dgk0355" path="res://Scripts/SkillManager.gd" id="10_ho0oi"]
+[ext_resource type="Texture2D" uid="uid://5gej4jg0rxfb" path="res://Textures/DiscordIcons/orange_icon.png" id="10_lxlh7"]
+[ext_resource type="Texture2D" uid="uid://ct7u13dsc4oxl" path="res://Textures/DiscordIcons/red_icon.png" id="10_mu5rl"]
+[ext_resource type="Texture2D" uid="uid://lfxyvhl4swmk" path="res://Textures/DiscordIcons/yellow_icon.png" id="12_ho0oi"]
+[ext_resource type="Texture2D" uid="uid://b047u5n685jw" path="res://Textures/DiscordIcons/green_icon.png" id="13_rovth"]
+[ext_resource type="Texture2D" uid="uid://cr0ei0582e8f3" path="res://Textures/DiscordIcons/blue_icon.png" id="14_wr72f"]
+
+[node name="LevelManager" type="Control" unique_id=1911157824]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0u16y")
+
+[node name="InformationPanel" type="Panel" parent="." unique_id=64426139]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InformationManager" type="ColorRect" parent="InformationPanel" unique_id=670875106]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.14400001
+anchor_top = 0.694
+anchor_right = 0.85700005
+anchor_bottom = 0.97200006
+offset_left = 0.519989
+offset_top = -0.52001953
+offset_right = -0.44018555
+offset_bottom = 0.42407227
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7e8yd")
+
+[node name="Label" type="Label" parent="InformationPanel/InformationManager" unique_id=476600521]
+custom_minimum_size = Vector2(847, 114)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.216
+anchor_right = 0.9250001
+anchor_bottom = 0.81600004
+offset_left = 0.02399826
+offset_top = -0.0399971
+offset_right = -0.20007324
+offset_bottom = -0.040008545
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+text = "츄니즘을 잘하는 사람에게 화살표를 달아봅시다!"
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="InformationPanel/InformationManager" unique_id=2066866836]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.192
+anchor_top = -1.391
+anchor_right = 0.81000006
+anchor_bottom = -0.256
+offset_left = -0.36798096
+offset_top = -0.053009033
+offset_right = 0.20800781
+offset_bottom = 0.10311127
+
+[node name="Label2" type="Label" parent="InformationPanel/InformationManager" unique_id=2124533788]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81000006
+anchor_top = 0.684
+anchor_right = 0.966
+anchor_bottom = 0.896
+offset_left = -0.079956055
+offset_top = -0.009918213
+offset_right = 0.51208496
+offset_bottom = 0.1390686
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "진행[Enter]"
+
+[node name="GamePanel" type="ColorRect" parent="." unique_id=1588071611]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.064291224, 0.0642895, 0.1040555, 1)
+
+[node name="GuidePanel" type="Panel" parent="." unique_id=1462816074]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.513
+anchor_right = 0.961
+anchor_bottom = 0.9110001
+offset_top = -0.040039063
+offset_right = -0.11999512
+offset_bottom = 0.11993408
+script = ExtResource("5_c5a3t")
+
+[node name="Label" type="Label" parent="GuidePanel" unique_id=978866110]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.32700002
+anchor_top = 0.08800001
+anchor_right = 0.698
+anchor_bottom = 0.24400002
+offset_left = -0.39501953
+offset_top = 0.15999603
+offset_right = 0.2699585
+offset_bottom = 0.0799942
+theme_override_font_sizes/font_size = 43
+text = "조작법"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpperLeftArrow" type="Control" parent="GuidePanel" unique_id=576895991]
+layout_mode = 1
+anchor_left = 0.075
+anchor_top = 0.25100002
+anchor_right = 0.358
+anchor_bottom = 0.381
+offset_left = -0.375
+offset_top = 0.069992065
+offset_right = 0.16998291
+offset_bottom = 0.16999817
+
+[node name="TextureRect" type="TextureRect" parent="GuidePanel/UpperLeftArrow" unique_id=1607773444]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.223
+anchor_bottom = 1.0
+offset_right = 0.027000427
+texture = ExtResource("6_522g6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GuidePanel/UpperLeftArrow" unique_id=887735568]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.101005554
+offset_top = -1.0
+offset_right = -0.052001953
+offset_bottom = -0.00799942
+theme_override_font_sizes/font_size = 40
+text = ": D"
+
+[node name="PlaceOfWorship" type="Control" parent="GuidePanel" unique_id=455088360]
+layout_mode = 1
+anchor_left = 0.63500005
+anchor_top = 0.25100002
+anchor_right = 0.919
+anchor_bottom = 0.381
+offset_left = 0.024963379
+offset_top = 0.069992065
+offset_right = -0.31500244
+offset_bottom = 0.16999817
+
+[node name="TextureRect" type="TextureRect" parent="GuidePanel/PlaceOfWorship" unique_id=102519103]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.223
+anchor_bottom = 1.0
+offset_right = 0.027000427
+texture = ExtResource("7_n56hh")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GuidePanel/PlaceOfWorship" unique_id=480156923]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.101005554
+offset_top = -1.0
+offset_right = -0.052001953
+offset_bottom = -0.00799942
+theme_override_font_sizes/font_size = 40
+text = ": J"
+
+[node name="UpwardArrow" type="Control" parent="GuidePanel" unique_id=1613892176]
+layout_mode = 1
+anchor_left = 0.633
+anchor_top = 0.44200003
+anchor_right = 0.91600007
+anchor_bottom = 0.572
+offset_left = 3.794983
+offset_top = -0.060012817
+offset_right = 4.339966
+offset_bottom = 0.039993286
+
+[node name="TextureRect" type="TextureRect" parent="GuidePanel/UpwardArrow" unique_id=165715534]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.223
+anchor_bottom = 1.0
+offset_right = 0.027000427
+texture = ExtResource("8_o04ng")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GuidePanel/UpwardArrow" unique_id=2129543582]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.101005554
+offset_top = -1.0
+offset_right = -0.052001953
+offset_bottom = -0.00799942
+theme_override_font_sizes/font_size = 40
+text = ": A"
+
+[node name="DownwardArrow" type="Control" parent="GuidePanel" unique_id=627911211]
+layout_mode = 1
+anchor_left = 0.07700001
+anchor_top = 0.44200003
+anchor_right = 0.36
+anchor_bottom = 0.572
+offset_left = -0.14500427
+offset_top = -0.060012817
+offset_right = 0.3999939
+offset_bottom = 0.039993286
+
+[node name="TextureRect" type="TextureRect" parent="GuidePanel/DownwardArrow" unique_id=293348897]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.223
+anchor_bottom = 1.0
+offset_right = 0.027000427
+texture = ExtResource("9_sjeo6")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="GuidePanel/DownwardArrow" unique_id=1863251733]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.8989944
+offset_top = -3.0
+offset_right = 4.947998
+offset_bottom = -2.0079994
+theme_override_font_sizes/font_size = 40
+text = ": S"
+
+[node name="Pass" type="Control" parent="GuidePanel" unique_id=841038485]
+layout_mode = 1
+anchor_left = 0.63500005
+anchor_top = 0.437
+anchor_right = 0.919
+anchor_bottom = 0.56700003
+offset_left = -236.97504
+offset_top = 177.09
+offset_right = -237.315
+offset_bottom = 177.18999
+
+[node name="Label" type="Label" parent="GuidePanel/Pass" unique_id=829859695]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.104
+anchor_top = -0.23200001
+anchor_right = 1.215
+anchor_bottom = 0.786
+offset_left = 0.103946686
+offset_top = -0.00799942
+offset_right = 0.034942627
+offset_bottom = -0.02399826
+theme_override_font_sizes/font_size = 40
+text = "넘기기: Space Bar"
+
+[node name="Delete" type="Control" parent="GuidePanel" unique_id=2101223659]
+layout_mode = 1
+anchor_left = 0.367
+anchor_top = 0.70000005
+anchor_right = 0.651
+anchor_bottom = 0.83000004
+offset_left = 0.20498657
+offset_top = -3.0517578e-05
+offset_right = -0.13500977
+offset_bottom = 0.099975586
+
+[node name="Label" type="Label" parent="GuidePanel/Delete" unique_id=1315325720]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = -0.179
+anchor_right = 0.93600005
+anchor_bottom = 0.83900005
+offset_left = -0.060053825
+offset_top = 0.024000168
+offset_right = 0.06391907
+offset_bottom = 0.00799942
+theme_override_font_sizes/font_size = 40
+text = "제거: Shift"
+
+[node name="SkillPanel" type="Panel" parent="." unique_id=1945590812]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.21100001
+anchor_right = 0.961
+anchor_bottom = 0.44700003
+offset_left = -3.0
+offset_top = 0.11999512
+offset_right = 0.8800049
+offset_bottom = 0.23995972
+script = ExtResource("10_ho0oi")
+
+[node name="Label" type="Label" parent="SkillPanel" unique_id=672015117]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335
+anchor_top = 0.080000006
+anchor_right = 0.69000006
+anchor_bottom = 0.32900003
+offset_left = 0.18499756
+offset_top = -0.08000183
+offset_right = -0.41003418
+offset_bottom = 0.1049881
+theme_override_font_sizes/font_size = 42
+text = "실력"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ranker" type="Control" parent="SkillPanel" unique_id=1315655415]
+visible = false
+layout_mode = 1
+anchor_left = 0.078
+anchor_top = 0.47100002
+anchor_right = 0.224
+anchor_bottom = 0.961
+offset_left = 80.658
+offset_top = -4.1050034
+offset_right = 80.864
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Ranker" unique_id=294181231]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.016
+anchor_right = 0.492
+anchor_bottom = 0.536
+offset_right = 0.0399971
+texture = ExtResource("10_lxlh7")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Ranker" unique_id=2118231502]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.61600006
+anchor_right = 0.51000005
+anchor_bottom = 0.90400004
+offset_left = 0.03699994
+offset_right = -0.010009766
+theme_override_font_sizes/font_size = 25
+text = "탑랭커"
+
+[node name="Label2" type="Label" parent="SkillPanel/Ranker" unique_id=122274768]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646
+anchor_top = 0.032
+anchor_right = 0.93100005
+anchor_bottom = 0.52000004
+offset_left = 0.019950867
+offset_right = -0.015052795
+theme_override_font_sizes/font_size = 44
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Demon" type="Control" parent="SkillPanel" unique_id=1163973976]
+visible = false
+layout_mode = 1
+anchor_left = 0.231
+anchor_top = 0.47100002
+anchor_right = 0.377
+anchor_bottom = 0.961
+offset_left = 80.64099
+offset_top = -4.1050034
+offset_right = 80.846985
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Demon" unique_id=384448603]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.016
+anchor_right = 0.492
+anchor_bottom = 0.536
+offset_right = 0.0399971
+texture = ExtResource("10_mu5rl")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Demon" unique_id=902806965]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.61600006
+anchor_right = 0.51000005
+anchor_bottom = 0.90400004
+offset_left = 0.03699994
+offset_right = -0.010009766
+theme_override_font_sizes/font_size = 25
+text = "악귀"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="SkillPanel/Demon" unique_id=940012835]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646
+anchor_top = 0.032
+anchor_right = 0.93100005
+anchor_bottom = 0.52000004
+offset_left = 0.019950867
+offset_right = -0.015052795
+theme_override_font_sizes/font_size = 44
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pro" type="Control" parent="SkillPanel" unique_id=655350968]
+visible = false
+layout_mode = 1
+anchor_left = 0.384
+anchor_top = 0.47100002
+anchor_right = 0.53000003
+anchor_bottom = 0.961
+offset_left = 80.62399
+offset_top = -4.1050034
+offset_right = 80.82999
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Pro" unique_id=1442166135]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.016
+anchor_right = 0.492
+anchor_bottom = 0.536
+offset_right = 0.0399971
+texture = ExtResource("12_ho0oi")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Pro" unique_id=1251707980]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.61600006
+anchor_right = 0.51000005
+anchor_bottom = 0.90400004
+offset_left = 0.03699994
+offset_right = -0.010009766
+theme_override_font_sizes/font_size = 25
+text = "고수"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SkillPanel/Pro" unique_id=1408945291]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.646
+anchor_top = 0.032
+anchor_right = 0.93100005
+anchor_bottom = 0.52000004
+offset_left = 0.019950867
+offset_right = -0.015052795
+theme_override_font_sizes/font_size = 44
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Middleman" type="Control" parent="SkillPanel" unique_id=1000460807]
+visible = false
+layout_mode = 1
+anchor_left = 0.537
+anchor_top = 0.47100002
+anchor_right = 0.63100004
+anchor_bottom = 0.961
+offset_left = 80.606995
+offset_top = -4.1050034
+offset_right = 81.040955
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Middleman" unique_id=1433404096]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.016
+anchor_right = 0.73800004
+anchor_bottom = 0.536
+offset_right = 0.0079956055
+texture = ExtResource("13_rovth")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Middleman" unique_id=2073882820]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.071
+anchor_top = 0.60800004
+anchor_right = 0.82100004
+anchor_bottom = 0.896
+offset_left = -0.035987377
+offset_right = 0.036010742
+theme_override_font_sizes/font_size = 25
+text = "미들맨"
+
+[node name="Newbie" type="Control" parent="SkillPanel" unique_id=301079427]
+visible = false
+layout_mode = 1
+anchor_left = 0.61800003
+anchor_top = 0.47100002
+anchor_right = 0.76400006
+anchor_bottom = 0.961
+offset_left = 80.59796
+offset_top = -4.1050034
+offset_right = 80.803955
+offset_bottom = -4.055008
+
+[node name="TextureRect" type="TextureRect" parent="SkillPanel/Newbie" unique_id=743955889]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.485
+anchor_top = 0.016
+anchor_right = 0.97700006
+anchor_bottom = 0.536
+offset_left = -0.05000305
+offset_right = -0.010009766
+texture = ExtResource("14_wr72f")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="SkillPanel/Newbie" unique_id=2002239354]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.41500002
+anchor_top = 0.60800004
+anchor_right = 0.99200004
+anchor_bottom = 0.896
+offset_left = 0.050006866
+offset_right = 0.040008545
+theme_override_font_sizes/font_size = 25
+text = "뉴비"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="SkillPanel/Newbie" unique_id=368240556]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07700001
+anchor_top = 0.032
+anchor_right = 0.36200002
+anchor_bottom = 0.52000004
+offset_left = -0.010046959
+offset_right = -0.04504776
+theme_override_font_sizes/font_size = 44
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusPanel" type="Panel" parent="." unique_id=760415821]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 58.0
+offset_right = 1803.0
+offset_bottom = 197.0
+
+[node name="LevelValue" type="Label" parent="StatusPanel" unique_id=41814489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 228.0
+offset_top = 41.0
+offset_right = -575.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "Level 1-1"
+vertical_alignment = 1
+
+[node name="TimeBar" type="ColorRect" parent="StatusPanel" unique_id=862392712]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22600001
+anchor_top = 0.374
+anchor_right = 0.66400003
+anchor_bottom = 0.66200006
+offset_left = 184.478
+offset_top = 0.013999939
+offset_right = 184.69196
+offset_bottom = -0.018005371
+color = Color(1, 1, 0, 1)
+
+[node name="TimeText" type="Label" parent="StatusPanel" unique_id=1699401918]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 828.5
+offset_top = 44.0
+offset_right = -60.5
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "15"
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="StatusPanel" unique_id=817272165]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 71.0
+offset_top = 17.0
+offset_right = -791.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 13
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreValue" type="Label" parent="StatusPanel" unique_id=828904746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 42.0
+offset_top = 45.0
+offset_right = -761.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 34
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StageClearLabel" type="Label" parent="." unique_id=204158954]
+visible = false
+top_level = true
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.28800002
+anchor_right = 0.763
+anchor_bottom = 0.44500002
+offset_left = -0.08001709
+offset_top = -0.040008545
+offset_right = 0.040039063
+offset_bottom = 0.39996338
+theme_override_colors/font_color = Color(0.8381863, 0.6601559, 1, 1)
+theme_override_colors/font_outline_color = Color(0.54610175, 0.40233874, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 109
+text = "Stage Clear!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PerfectLabel" type="Label" parent="." unique_id=451159694]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.44900003
+anchor_right = 0.58100003
+anchor_bottom = 0.50600004
+offset_left = -0.6800537
+offset_top = 0.079956055
+offset_right = 0.47998047
+offset_bottom = -0.4800415
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Perfect +7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBonusLabel" type="Label" parent="." unique_id=487500348]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39900002
+anchor_top = 0.49100003
+anchor_right = 0.583
+anchor_bottom = 0.544
+offset_left = -0.08001709
+offset_top = 18.71997
+offset_right = 0.64001465
+offset_bottom = 19.47998
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Time +5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameoverPanel" type="Panel" parent="." unique_id=1981750497]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23400001
+anchor_top = 0.26200002
+anchor_right = 0.77000004
+anchor_bottom = 0.76900005
+offset_left = 0.7199707
+offset_top = 0.039978027
+offset_right = 0.5999756
+offset_bottom = 0.47991943
+
+[node name="Text" type="Label" parent="GameoverPanel" unique_id=1496567823]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.068
+anchor_right = 0.767
+anchor_bottom = 0.21400002
+offset_left = -0.4960022
+offset_top = -0.26400375
+offset_right = -0.24304199
+offset_bottom = -0.2720108
+theme_override_font_sizes/font_size = 57
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreText" type="Label" parent="GameoverPanel" unique_id=164767816]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.22700001
+anchor_top = 0.41400003
+anchor_right = 0.77300006
+anchor_bottom = 0.56
+offset_left = 2.4169922
+offset_top = 0.12797546
+offset_right = -0.41705322
+offset_bottom = 0.11999512
+theme_override_font_sizes/font_size = 57
+text = "Score: 000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartText" type="Label" parent="GameoverPanel" unique_id=856243202]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23700002
+anchor_top = 0.63000005
+anchor_right = 0.78000003
+anchor_bottom = 0.776
+offset_left = 0.12698364
+offset_top = -0.24002075
+offset_right = 0.37994385
+offset_bottom = -0.24801636
+theme_override_font_sizes/font_size = 57
+text = "Restart[Enter]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="." unique_id=619149612]
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1680853451]
+
+[node name="Label" type="Label" parent="." unique_id=1258186939]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.76600003
+anchor_top = 0.92800003
+anchor_right = 0.95800006
+anchor_bottom = 0.99100006
+offset_left = 0.27990723
+offset_top = -0.24005127
+offset_right = -0.36010742
+offset_bottom = -0.2800293
+theme_override_font_sizes/font_size = 46
+text = "게임종료:Esc"
+horizontal_alignment = 1
+vertical_alignment = 1

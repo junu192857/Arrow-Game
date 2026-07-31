@@ -77,6 +77,21 @@ offset_top = -0.053009033
 offset_right = 0.20800781
 offset_bottom = 0.10311127
 
+[node name="Label2" type="Label" parent="InformationPanel/InformationManager" unique_id=2124533788]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.81000006
+anchor_top = 0.684
+anchor_right = 0.966
+anchor_bottom = 0.896
+offset_left = -0.079956055
+offset_top = -0.009918213
+offset_right = 0.51208496
+offset_bottom = 0.1390686
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "진행[Enter]"
+
 [node name="GamePanel" type="ColorRect" parent="." unique_id=1588071611]
 layout_mode = 1
 anchors_preset = 15
@@ -762,3 +777,19 @@ vertical_alignment = 1
 [node name="BackgroundPlayer" type="AudioStreamPlayer" parent="." unique_id=619149612]
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1680853451]
+
+[node name="Label" type="Label" parent="." unique_id=1258186939]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.76600003
+anchor_top = 0.92800003
+anchor_right = 0.95800006
+anchor_bottom = 0.99100006
+offset_left = 0.27990723
+offset_top = -0.24005127
+offset_right = -0.36010742
+offset_bottom = -0.2800293
+theme_override_font_sizes/font_size = 46
+text = "게임종료:Esc"
+horizontal_alignment = 1
+vertical_alignment = 1
