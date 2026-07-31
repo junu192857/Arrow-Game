@@ -266,14 +266,14 @@ func _set_current_chatting(chatting: Chatting) -> void:
 
 func _reposition_targets() -> void:
 	var current_index := target_chattings.find(current_chatting)
-	if current_index < 0:
+	if current_index == 0:
 		return
 	if _reposition_tween != null:
 		_reposition_tween.kill()
 	_reposition_tween = create_tween()
 	_reposition_tween.set_parallel(true)
 	for i in range(target_chattings.size()):
-		var offset := (i - current_index) * _target_anchor_step
+		var offset := (i - current_index + 1) * _target_anchor_step
 		var target_top := _target_base_anchor_top + offset
 		var target_bottom := _target_base_anchor_bottom + offset
 		_reposition_tween.tween_property(target_chattings[i], "anchor_top", target_top, 0.3)

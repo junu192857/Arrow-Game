@@ -1,0 +1,13 @@
+diff --git a/arrow-game/Scripts/LevelManager.gd b/arrow-game/Scripts/LevelManager.gd
+index 638f99a..21d0726 100644
+--- a/arrow-game/Scripts/LevelManager.gd
++++ b/arrow-game/Scripts/LevelManager.gd
+@@ -273,7 +273,7 @@ func _reposition_targets() -> void:
+ 	_reposition_tween = create_tween()
+ 	_reposition_tween.set_parallel(true)
+ 	for i in range(target_chattings.size()):
+-		var offset := (i - current_index) * _target_anchor_step
++		var offset := (i - current_index + 1) * _target_anchor_step
+ 		var target_top := _target_base_anchor_top + offset
+ 		var target_bottom := _target_base_anchor_bottom + offset
+ 		_reposition_tween.tween_property(target_chattings[i], "anchor_top", target_top, 0.3)
