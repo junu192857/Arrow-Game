@@ -82,6 +82,7 @@ func start_new_level():
 		child.queue_free()
 	$GuidePanel.set_guide(level)
 	$SkillPanel.set_skill_guide(level)
+	$StatusPanel/LevelValue.text = "Level %d-1" % level
 	if (level <= 11):
 		$InformationPanel.visible = true
 		$BackgroundPlayer.stream_paused = true
