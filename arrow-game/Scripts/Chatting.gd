@@ -17,11 +17,23 @@ var place_of_worship: int
 var upper_arrow: int
 var down_arrow: int
 
+var is_current: bool = false
+
 func _ready() -> void:
 	if is_target:
 		for i in range(holder_count):
 			imojiHolders[i].clear()
 	setup(Skill.Newbie)
+
+func set_highlighted(value: bool) -> void:
+	if is_current == value:
+		return
+	is_current = value
+	queue_redraw()
+
+func _draw() -> void:
+	if is_current:
+		draw_rect(Rect2(Vector2.ZERO, size), Color.LIGHT_SKY_BLUE, false, 4.0)
 
 func setup(p_skill: Skill) -> void:
 	skill = p_skill

@@ -46,7 +46,7 @@ func start_new_stage():
 	_create_record(_random_line("res://RecordChattings.txt"), _random_target_skill())
 	target_count = max(10, level)
 	_create_targets(target_count, true)
-	current_chatting = target_chattings[0]
+	_set_current_chatting(target_chattings[0])
 
 func _on_key_pressed(key: InputManager.Key) -> void:
 	if !playing:
@@ -79,10 +79,17 @@ func _advance_chatting() -> void:
 		else:
 			start_new_stage()
 		return
-	current_chatting = target_chattings[next_index]
+	_set_current_chatting(target_chattings[next_index])
 
 func _can_advance_chatting() -> bool:
 	return true # 조건 추가 예정
+
+func _set_current_chatting(chatting: Chatting) -> void:
+	if current_chatting != null:
+		current_chatting.set_highlighted(false)
+	current_chatting = chatting
+	if current_chatting != null:
+		current_chatting.set_highlighted(true)
 
 func _create_record(chat_text: String, skill: Chatting.Skill) -> void:
 	var record := RECORD_CHATTING_SCENE.instantiate() as Chatting
