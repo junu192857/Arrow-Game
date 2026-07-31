@@ -31,7 +31,7 @@ var _reposition_tween: Tween
 
 
 func _ready():
-	level = 2
+	level = 8
 	_time_bar_anchor_left = $StatusPanel/TimeBar.anchor_left
 	_time_bar_full_anchor_right = $StatusPanel/TimeBar.anchor_right
 	$InformationPanel/InformationManager.information_closed.connect(start_new_stage)
@@ -342,8 +342,30 @@ func show_information_record(p_level: int):
 			_create_record("와미친대박성과ㅋㅋㅋ", Chatting.Skill.Ranker)
 		6:
 			_create_record("와진짜겨우했네요..", Chatting.Skill.Pro)
-			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..", true)
+			var chatting = _create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..", true)
+			chatting.add_imoji(3)
 			_create_target(1, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
+		7:
+			_create_record("와진짜겨우했네요..", Chatting.Skill.Pro)
+			_create_target(0, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
+			var chatting = _create_target(1, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..", true)
+			chatting.add_imoji(2)
+		8:
+			_create_record("오늘성과요~~", Chatting.Skill.Middleman)
+			var chatting = _create_target(0, Chatting.Skill.Ranker, "츄니즘잘하면좋겠죠..", true)
+			for i in range(4):
+				chatting.add_imoji(0)
+			for i in range(3):
+				chatting.add_imoji(1)
+		9:
+			_create_record("오늘성과요~~", Chatting.Skill.Middleman)
+			_create_target(0, Chatting.Skill.Ranker, "츄니즘잘하면좋겠죠..", true)
+			var chatting = _create_target(1, Chatting.Skill.Middleman, "츄니즘잘하면좋겠죠..", true)
+			_create_target(2, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..", true)
+			for i in range(3):
+				chatting.add_imoji(3)
+			for i in range(4):
+				chatting.add_imoji(2)
 
 func show_information_chatting(p_level: int):
 	pass

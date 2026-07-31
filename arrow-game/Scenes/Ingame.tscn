@@ -24,7 +24,6 @@ grow_vertical = 2
 script = ExtResource("1_0u16y")
 
 [node name="InformationPanel" type="Panel" parent="." unique_id=64426139]
-visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -36,14 +35,14 @@ grow_vertical = 2
 [node name="InformationManager" type="ColorRect" parent="InformationPanel" unique_id=670875106]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.133
-anchor_top = 0.57500005
-anchor_right = 0.846
-anchor_bottom = 0.85400003
-offset_left = 0.352005
-offset_top = -6.1035156e-05
-offset_right = -0.6081543
-offset_bottom = -0.13598633
+anchor_left = 0.14400001
+anchor_top = 0.694
+anchor_right = 0.85700005
+anchor_bottom = 0.97200006
+offset_left = 0.519989
+offset_top = -0.52001953
+offset_right = -0.44018555
+offset_bottom = 0.42407227
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7e8yd")
