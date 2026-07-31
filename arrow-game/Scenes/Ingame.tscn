@@ -660,6 +660,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PerfectLabel" type="Label" parent="." unique_id=451159694]
+visible = false
 z_index = 2
 layout_mode = 1
 anchors_preset = -1
@@ -757,3 +758,7 @@ theme_override_font_sizes/font_size = 57
 text = "Restart[Enter]"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="." unique_id=619149612]
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1680853451]
