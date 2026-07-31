@@ -636,3 +636,63 @@ theme_override_font_sizes/font_size = 34
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StageClearLabel" type="Label" parent="." unique_id=204158954]
+visible = false
+top_level = true
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.224
+anchor_top = 0.28800002
+anchor_right = 0.763
+anchor_bottom = 0.44500002
+offset_left = -0.08001709
+offset_top = -0.040008545
+offset_right = 0.040039063
+offset_bottom = 0.39996338
+theme_override_colors/font_color = Color(0.8381863, 0.6601559, 1, 1)
+theme_override_colors/font_outline_color = Color(0.54610175, 0.40233874, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 109
+text = "Stage Clear!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PerfectLabel" type="Label" parent="." unique_id=451159694]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.43100002
+anchor_right = 0.58100003
+anchor_bottom = 0.48800004
+offset_left = -0.6800537
+offset_top = 19.519989
+offset_right = 0.47998047
+offset_bottom = 18.95996
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Perfect +2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeBonusLabel" type="Label" parent="." unique_id=487500348]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.39900002
+anchor_top = 0.49100003
+anchor_right = 0.583
+anchor_bottom = 0.544
+offset_left = -0.08001709
+offset_top = 18.71997
+offset_right = 0.64001465
+offset_bottom = 19.47998
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "Time +5"
+horizontal_alignment = 1
+vertical_alignment = 1
