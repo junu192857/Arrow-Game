@@ -1,6 +1,6 @@
 extends Node
 
-const STAGE_TIME_LIMIT := 15.0
+const STAGE_TIME_LIMIT := 30.0
 
 var level: int
 var stage: int
@@ -104,6 +104,7 @@ func _on_key_pressed(key: InputManager.Key) -> void:
 	if !playing:
 		if key == InputManager.Key.ENTER:
 			_restart_game()
+			return
 		else:
 			return
 	match key:
