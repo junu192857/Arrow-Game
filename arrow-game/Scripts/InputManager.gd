@@ -1,6 +1,6 @@
 extends Node
 
-enum Key { S, D, J, K, SPACE, ENTER }
+enum Key { S, D, J, A, SPACE, ENTER }
 
 signal key_pressed(key: Key)
 signal shift_held_changed(is_held: bool)
@@ -11,7 +11,7 @@ const KEY_MAP := {
 	KEY_S: Key.S,
 	KEY_D: Key.D,
 	KEY_J: Key.J,
-	KEY_K: Key.K,
+	KEY_A: Key.A,
 	KEY_SPACE: Key.SPACE,
 	KEY_ENTER: Key.ENTER,
 }

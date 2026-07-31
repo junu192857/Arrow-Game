@@ -93,9 +93,9 @@ func _on_key_pressed(key: InputManager.Key) -> void:
 		InputManager.Key.J:
 			_apply_imoji(1)
 		InputManager.Key.S:
-			_apply_imoji(2)
-		InputManager.Key.K:
 			_apply_imoji(3)
+		InputManager.Key.A:
+			_apply_imoji(2)
 		InputManager.Key.SPACE:
 			_advance_chatting()
 
@@ -295,6 +295,9 @@ func show_information_record(p_level: int):
 		1:
 			_create_record("오늘성과요~~", Chatting.Skill.Middleman)
 			_create_target(0, Chatting.Skill.Pro, "츄니즘잘하면좋겠죠..")
+		2:
+			_create_record("와진짜겨우했네요...", Chatting.Skill.Pro)
+			_create_target(0, Chatting.Skill.Demon, "츄니즘잘하면좋겠죠..")
 
 func show_information_chatting(p_level: int):
 	pass
