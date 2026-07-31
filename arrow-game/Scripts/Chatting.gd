@@ -19,6 +19,9 @@ var down_arrow: int
 
 var is_current: bool = false
 
+var _effect_color: Color = Color.TRANSPARENT
+var _effect_tween: Tween
+
 func _ready() -> void:
 	if is_target:
 		for i in range(holder_count):
@@ -31,7 +34,27 @@ func set_highlighted(value: bool) -> void:
 	is_current = value
 	queue_redraw()
 
+func flash_wrong() -> void:
+	_flash(Color(1, 0, 0, 0.55))
+
+func flash_correct() -> void:
+	_flash(Color(1, 1, 0, 0.55))
+
+func _flash(color: Color) -> void:
+	if _effect_tween != null:
+		_effect_tween.kill()
+	_effect_color = color
+	queue_redraw()
+	_effect_tween = create_tween()
+	_effect_tween.tween_method(_set_effect_alpha, color.a, 0.0, 0.5)
+
+func _set_effect_alpha(alpha: float) -> void:
+	_effect_color.a = alpha
+	queue_redraw()
+
 func _draw() -> void:
+	if _effect_color.a > 0.0:
+		draw_rect(Rect2(Vector2.ZERO, size), _effect_color, true)
 	if is_current:
 		draw_rect(Rect2(Vector2.ZERO, size), Color.LIGHT_SKY_BLUE, false, 4.0)
 

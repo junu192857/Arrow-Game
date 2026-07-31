@@ -75,9 +75,10 @@ func _apply_imoji(imojiIndex: int) -> void:
 
 func _try_add_imoji(imojiIndex: int) -> void:
 	var current_count := current_chatting.get_imoji_count(imojiIndex)
-	if current_count >= _max_count_for(imojiIndex):
-		return
 	if not _can_delete_type(imojiIndex) and current_count >= _required_count(imojiIndex, current_chatting):
+		current_chatting.flash_wrong()
+		return
+	if current_count >= _max_count_for(imojiIndex):
 		return
 	current_chatting.add_imoji(imojiIndex)
 
@@ -137,7 +138,9 @@ func _required_count(imojiIndex: int, chatting: Chatting) -> int:
 
 func _advance_chatting() -> void:
 	if not _can_advance_chatting():
+		current_chatting.flash_wrong()
 		return
+	current_chatting.flash_correct()
 	var next_index := target_chattings.find(current_chatting) + 1
 	if next_index >= target_chattings.size():
 		if stage >= 3:
