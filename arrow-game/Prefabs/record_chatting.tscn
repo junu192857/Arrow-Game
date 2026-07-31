@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://n3d2pb53mt83" path="res://Textures/Records/IMG_2567.webp" id="2_cwnu8"]
 
 [node name="RecordChatting" type="Control" unique_id=1654729021 node_paths=PackedStringArray("icon", "chat", "username")]
+z_index = 1
 layout_mode = 3
 anchor_left = 0.089
 anchor_top = 0.12200001
@@ -18,6 +19,17 @@ script = ExtResource("1_cwnu8")
 icon = NodePath("Icon")
 chat = NodePath("Chat")
 username = NodePath("Name")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1059733925]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.40600002
+anchor_right = 1.0
+anchor_bottom = 1.0400001
+offset_top = 0.14816284
+offset_right = 0.5599365
+offset_bottom = 0.10812378
+color = Color(0.0627451, 0.0627451, 0.105882354, 1)
 
 [node name="Icon" type="TextureRect" parent="." unique_id=1583275315]
 layout_mode = 1
