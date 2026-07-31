@@ -57,6 +57,8 @@ func _update_score_display() -> void:
 
 func _game_over() -> void:
 	playing = false
+	$GameoverPanel.visible = true
+	$GameoverPanel/ScoreText.text = "Score: %d" % score
 
 func start_new_level():
 	level += 1
@@ -88,9 +90,22 @@ func start_new_stage():
 	$StatusPanel/LevelValue.text = "Level %d-%d" % [level, stage]
 	_update_time_display()
 
+func _restart_game():
+	if $GameoverPanel.visible:
+		$GameoverPanel.visible = false
+		level = 0
+		stage = 0
+		score = 0
+		$StatusPanel/ScoreValue.text = "0"
+		start_new_level()
+
+
 func _on_key_pressed(key: InputManager.Key) -> void:
 	if !playing:
-		return
+		if key == InputManager.Key.ENTER:
+			_restart_game()
+		else:
+			return
 	match key:
 		InputManager.Key.D:
 			_apply_imoji(0)
