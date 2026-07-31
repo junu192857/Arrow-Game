@@ -18,6 +18,7 @@ var _target_base_ready: bool = false
 
 var target_chattings: Array[Chatting]
 var current_chatting: Chatting
+var current_record: Chatting
 
 
 func _ready():
@@ -64,10 +65,75 @@ func _on_key_pressed(key: InputManager.Key) -> void:
 			_advance_chatting()
 
 func _apply_imoji(imojiIndex: int) -> void:
+	if not _is_type_unlocked(imojiIndex):
+		return
 	if InputManager.shift_held:
-		current_chatting.delete_imoji(imojiIndex)
+		if _can_delete_type(imojiIndex):
+			current_chatting.delete_imoji(imojiIndex)
 	else:
-		current_chatting.add_imoji(imojiIndex)
+		_try_add_imoji(imojiIndex)
+
+func _try_add_imoji(imojiIndex: int) -> void:
+	var current_count := current_chatting.get_imoji_count(imojiIndex)
+	if current_count >= _max_count_for(imojiIndex):
+		return
+	if not _can_delete_type(imojiIndex) and current_count >= _required_count(imojiIndex, current_chatting):
+		return
+	current_chatting.add_imoji(imojiIndex)
+
+func _is_type_unlocked(imojiIndex: int) -> bool:
+	match imojiIndex:
+		0:
+			return level >= 1
+		1:
+			return level >= 2
+		3:
+			return level >= 6
+		2:
+			return level >= 7
+	return false
+
+func _max_count_for(imojiIndex: int) -> int:
+	match imojiIndex:
+		0, 1:
+			return 5 if level >= 8 else 1
+		2, 3:
+			return 5 if level >= 9 else 1
+	return 0
+
+func _can_delete_type(imojiIndex: int) -> bool:
+	match imojiIndex:
+		0:
+			return level >= 3
+		1:
+			return level >= 4
+		2:
+			return level >= 7
+		3:
+			return level >= 6
+	return false
+
+func _required_count(imojiIndex: int, chatting: Chatting) -> int:
+	match imojiIndex:
+		0:
+			var diff := chatting.skill - current_record.skill
+			return max(0, diff + 1) if level >= 8 else (1 if diff >= 0 else 0)
+		1:
+			var diff := chatting.skill - current_record.skill
+			return max(0, diff) if level >= 8 else (1 if diff > 0 else 0)
+		2:
+			var idx := target_chattings.find(chatting)
+			if idx <= 0:
+				return 0
+			var diff := target_chattings[idx - 1].skill - chatting.skill
+			return max(0, diff + 1) if level >= 9 else (1 if diff >= 0 else 0)
+		3:
+			var idx := target_chattings.find(chatting)
+			if idx < 0 or idx >= target_chattings.size() - 1:
+				return 0
+			var diff := target_chattings[idx + 1].skill - chatting.skill
+			return max(0, diff + 1) if level >= 9 else (1 if diff >= 0 else 0)
+	return 0
 
 func _advance_chatting() -> void:
 	if not _can_advance_chatting():
@@ -82,7 +148,12 @@ func _advance_chatting() -> void:
 	_set_current_chatting(target_chattings[next_index])
 
 func _can_advance_chatting() -> bool:
-	return true # 조건 추가 예정
+	for imoji_index in range(4):
+		if not _is_type_unlocked(imoji_index):
+			continue
+		if current_chatting.get_imoji_count(imoji_index) != _required_count(imoji_index, current_chatting):
+			return false
+	return true
 
 func _set_current_chatting(chatting: Chatting) -> void:
 	if current_chatting != null:
@@ -104,7 +175,8 @@ func _create_record(chat_text: String, skill: Chatting.Skill) -> void:
 	record.offset_bottom = 0.5359802
 	record.chat.text = chat_text#_random_line("res://RecordChattings.txt")
 	record.setup(skill)
-	
+	current_record = record
+
 func _create_target(index: int, skill: Chatting.Skill, chat_text: String) -> Chatting:
 	var target := TARGET_CHATTING_SCENE.instantiate() as Chatting
 	$GamePanel.add_child(target)

@@ -59,6 +59,12 @@ func setup(p_skill: Skill) -> void:
 			username.text = "탑랭커"
 			username.add_theme_color_override("font_color", Color.WEB_PURPLE)
 
+func get_imoji_count(imojiIndex: int) -> int:
+	for i in range(holder_count):
+		if imojiHolders[i].imoji_index == imojiIndex:
+			return imojiHolders[i].count
+	return 0
+
 func add_imoji(imojiIndex: int):
 	for i in range(holder_count):
 		if imojiHolders[i].imoji_index == imojiIndex:
