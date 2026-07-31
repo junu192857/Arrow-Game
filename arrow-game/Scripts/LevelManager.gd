@@ -66,8 +66,8 @@ func start_new_level():
 		child.queue_free()
 	$GuidePanel.set_guide(level)
 	$SkillPanel.set_skill_guide(level)
-	$InformationPanel.visible = true
 	if (level <= 11):
+		$InformationPanel.visible = true
 		$InformationPanel/InformationManager.show_information(level)
 		show_information_record(level)
 	else:
@@ -320,7 +320,6 @@ func _random_line(path: String) -> String:
 	var lines := text.split("\n")
 	while lines.size() > 0 and lines[-1].is_empty():
 		lines.remove_at(lines.size() - 1)
-	print(lines.size())
 	return lines[randi() % lines.size()]
 
 
