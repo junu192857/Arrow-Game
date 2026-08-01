@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InputManager="*uid://cqlv3cxb1jkab"
+InputManager="*res://Scripts/InputManager.gd"
 
 [display]
 
