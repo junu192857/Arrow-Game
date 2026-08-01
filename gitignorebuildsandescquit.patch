@@ -1,0 +1,25 @@
+diff --git a/.gitignore b/.gitignore
+index ba6deda..fb08ba2 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -15,3 +15,6 @@ export_credentials.cfg
+ data_*/
+ mono_crash.*.json
+ *.cfg
++
++# Exported build output
++Builds/
+diff --git a/arrow-game/Scripts/InputManager.gd b/arrow-game/Scripts/InputManager.gd
+index ea69a98..7b25aca 100644
+--- a/arrow-game/Scripts/InputManager.gd
++++ b/arrow-game/Scripts/InputManager.gd
+@@ -26,5 +26,9 @@ func _input(event: InputEvent) -> void:
+ 			shift_held = event.pressed
+ 			shift_held_changed.emit(shift_held)
+ 		return
++	if event.keycode == KEY_ESCAPE:
++		if event.pressed:
++			get_tree().quit()
++		return
+ 	if event.pressed and KEY_MAP.has(event.keycode):
+ 		key_pressed.emit(KEY_MAP[event.keycode])

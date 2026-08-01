@@ -26,5 +26,9 @@ func _input(event: InputEvent) -> void:
 			shift_held = event.pressed
 			shift_held_changed.emit(shift_held)
 		return
+	if event.keycode == KEY_ESCAPE:
+		if event.pressed:
+			get_tree().quit()
+		return
 	if event.pressed and KEY_MAP.has(event.keycode):
 		key_pressed.emit(KEY_MAP[event.keycode])
