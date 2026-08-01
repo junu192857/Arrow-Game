@@ -8,10 +8,10 @@ signal shift_held_changed(is_held: bool)
 var shift_held: bool = false
 
 const KEY_MAP := {
-	KEY_S: Key.S,
-	KEY_D: Key.D,
-	KEY_J: Key.J,
-	KEY_A: Key.A,
+	KEY_DOWN: Key.S,
+	KEY_LEFT: Key.D,
+	KEY_RIGHT: Key.J,
+	KEY_UP: Key.A,
 	KEY_SPACE: Key.SPACE,
 	KEY_ENTER: Key.ENTER,
 }

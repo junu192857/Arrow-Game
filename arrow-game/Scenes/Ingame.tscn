@@ -160,7 +160,7 @@ offset_top = -1.0
 offset_right = -0.052001953
 offset_bottom = -0.00799942
 theme_override_font_sizes/font_size = 40
-text = ": D"
+text = ": ←"
 
 [node name="PlaceOfWorship" type="Control" parent="GuidePanel" unique_id=455088360]
 layout_mode = 1
@@ -193,7 +193,7 @@ offset_top = -1.0
 offset_right = -0.052001953
 offset_bottom = -0.00799942
 theme_override_font_sizes/font_size = 40
-text = ": J"
+text = ": →"
 
 [node name="UpwardArrow" type="Control" parent="GuidePanel" unique_id=1613892176]
 layout_mode = 1
@@ -226,7 +226,7 @@ offset_top = -1.0
 offset_right = -0.052001953
 offset_bottom = -0.00799942
 theme_override_font_sizes/font_size = 40
-text = ": A"
+text = ": ↑"
 
 [node name="DownwardArrow" type="Control" parent="GuidePanel" unique_id=627911211]
 layout_mode = 1
@@ -259,7 +259,7 @@ offset_top = -3.0
 offset_right = 4.947998
 offset_bottom = -2.0079994
 theme_override_font_sizes/font_size = 40
-text = ": S"
+text = ": ↓"
 
 [node name="Pass" type="Control" parent="GuidePanel" unique_id=841038485]
 layout_mode = 1
