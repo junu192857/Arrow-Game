@@ -77,7 +77,7 @@ func _game_over() -> void:
 func start_new_level():
 	level += 1
 	stage = 0
-	stage_time_limit = 30.0 if level < 6 else 60.0
+	stage_time_limit = 20.0 if level < 6 else 40.0
 	playing = false
 	for child in $GamePanel.get_children():
 		child.queue_free()
