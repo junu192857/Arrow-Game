@@ -1,6 +1,6 @@
 extends Node
 
-const STAGE_TIME_LIMIT := 30.0
+var stage_time_limit: float
 
 var level: int
 var stage: int
@@ -60,7 +60,7 @@ func _process(delta: float) -> void:
 		_game_over()
 
 func _update_time_display() -> void:
-	var fraction := time_left / STAGE_TIME_LIMIT
+	var fraction := time_left / stage_time_limit
 	$StatusPanel/TimeBar.anchor_right = _time_bar_anchor_left + (_time_bar_full_anchor_right - _time_bar_anchor_left) * fraction
 	$StatusPanel/TimeText.text = str(ceili(time_left))
 
@@ -77,6 +77,7 @@ func _game_over() -> void:
 func start_new_level():
 	level += 1
 	stage = 0
+	stage_time_limit = 30.0 if level < 6 else 60.0
 	playing = false
 	for child in $GamePanel.get_children():
 		child.queue_free()
@@ -95,7 +96,7 @@ func start_new_stage():
 	stage += 1
 	playing = true
 	$BackgroundPlayer.stream_paused = false
-	time_left = STAGE_TIME_LIMIT
+	time_left = stage_time_limit
 	_stage_perfect = true
 	target_chattings.clear()
 	for child in $GamePanel.get_children():

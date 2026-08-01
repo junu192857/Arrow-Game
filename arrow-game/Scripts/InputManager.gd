@@ -16,14 +16,15 @@ const KEY_MAP := {
 	KEY_ENTER: Key.ENTER,
 }
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	var key_event := event as InputEventKey
-	if key_event == null or key_event.echo:
+func _input(event: InputEvent) -> void:
+	if event is not InputEventKey:
 		return
-	if key_event.keycode == KEY_SHIFT:
-		if key_event.pressed != shift_held:
-			shift_held = key_event.pressed
+	if event == null or event.echo:
+		return
+	if event.keycode == KEY_SHIFT:
+		if event.pressed != shift_held:
+			shift_held = event.pressed
 			shift_held_changed.emit(shift_held)
 		return
-	if key_event.pressed and KEY_MAP.has(key_event.keycode):
-		key_pressed.emit(KEY_MAP[key_event.keycode])
+	if event.pressed and KEY_MAP.has(event.keycode):
+		key_pressed.emit(KEY_MAP[event.keycode])
