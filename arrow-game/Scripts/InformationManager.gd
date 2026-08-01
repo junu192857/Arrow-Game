@@ -15,6 +15,11 @@ func show_information(level: int) -> void:
 	lines = text.split("\n")
 	while lines.size() > 0 and lines[-1].is_empty():
 		lines.remove_at(lines.size() - 1)
+	if lines.is_empty():
+		push_error("InformationManager: failed to load res://Informations/Level%d.txt" % level)
+		get_parent().visible = false
+		information_closed.emit()
+		return
 	line_index = 0
 	_show_current_line()
 

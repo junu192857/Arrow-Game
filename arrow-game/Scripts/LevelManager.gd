@@ -359,6 +359,9 @@ func _random_line(path: String) -> String:
 	var lines := text.split("\n")
 	while lines.size() > 0 and lines[-1].is_empty():
 		lines.remove_at(lines.size() - 1)
+	if lines.is_empty():
+		push_error("_random_line: failed to load %s" % path)
+		return ""
 	return lines[randi() % lines.size()]
 
 

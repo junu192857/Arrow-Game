@@ -1,6 +1,6 @@
 extends Node
 
-enum Key { S, D, J, A, SPACE, ENTER }
+enum Key { S, D, J, A, SPACE, ENTER, ESC }
 
 signal key_pressed(key: Key)
 signal shift_held_changed(is_held: bool)
